@@ -1,0 +1,20 @@
+--- a/chrome/browser/ui/views/status_bubble_views.cc
++++ b/chrome/browser/ui/views/status_bubble_views.cc
+@@ -787,6 +787,8 @@ int StatusBubbleViews::GetWidthForURL(co
+ }
+
+ void StatusBubbleViews::SetStatus(const std::u16string& status_text) {
++  // Disable status bubble - return early to hide link preview tooltip
++  return;
+   if (size_.IsEmpty())
+     return;  // We have no bounds, don't attempt to show the popup.
+
+@@ -808,6 +810,8 @@ void StatusBubbleViews::SetStatus(const
+ }
+
+ void StatusBubbleViews::SetURL(const GURL& url) {
++  // Disable status bubble - return early to hide link preview tooltip
++  return;
+   url_ = url;
+   if (size_.IsEmpty())
+     return;  // We have no bounds, don't attempt to show the popup.
